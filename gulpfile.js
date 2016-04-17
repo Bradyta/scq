@@ -10,6 +10,7 @@ var rename = require('gulp-rename');
 var minify = require('gulp-minify-css');
 var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
+var mocha = require('gulp-mocha');
 
 
 js_files = [
@@ -27,6 +28,23 @@ js_files = [
     './static/javascripts/components/search_card.jsx',
     './static/javascripts/components/response.jsx',
     './static/javascripts/components/help.jsx'
+]
+
+test_js_files = [
+    './static/javascripts/db.js',
+    './static/javascripts/components/questions.jsx',
+    './static/javascripts/components/cards.jsx',
+    './static/javascripts/components/dashboard.jsx',
+    './static/javascripts/components/welcome.jsx',
+    './static/javascripts/components/survey_card.jsx',
+    './static/javascripts/components/survey_sample.jsx',
+    './static/javascripts/components/footer.jsx',
+    './static/javascripts/components/profile.jsx',
+    './static/javascripts/components/profile_groups.jsx',
+    './static/javascripts/components/groups_page.jsx',
+    './static/javascripts/components/search_card.jsx',
+    './static/javascripts/components/response.jsx',
+    './static/javascripts/components/help.jsx'    
 ]
 
 // Lint Task
@@ -70,10 +88,10 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('./static/dist/'));
 });
 
-// Watch Files For Changes
-gulp.task('watch', function() {
-    gulp.watch(js_files, ['dev-js']);
-
+gulp.task('test-js', function () {
+	return gulp.src('test.js', {read: false})
+		// gulp-mocha needs filepaths so you can't have any plugins before it 
+		.pipe(mocha({reporter: 'nyan'}));
 });
 
 // Default Task
