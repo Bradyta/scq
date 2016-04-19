@@ -1,7 +1,8 @@
 /*
 * Page is the overall container that gets mounted into our HTML file
 */
-var Page = React.createClass({
+module.exports = React.createClass({
+    displayName: 'Page',
     //if we're not logged in we want to render a Welcome menu
     render: function(){
       if (!loggedIn()) {
