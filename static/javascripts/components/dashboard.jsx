@@ -30,7 +30,8 @@ module.exports = React.createClass({
                 surveyID={item.id}
                 department={item.department}
                 creator={item.creator}
-                isInstructor={item.isInstructor}/>
+                isInstructor={item.isInstructor}
+                surveyTitle={item.item_name}/>
                 );
         });
           var answeredSurveys
@@ -71,7 +72,7 @@ var SurveyDiv = React.createClass({
                 responded: false,
         });
     },
-    
+
     componentDidMount: function() {
         this.setState({
             length: Object.keys(this.props.questions).length,
@@ -81,7 +82,7 @@ var SurveyDiv = React.createClass({
             },
         });
     },
-    
+
     //handler is called in footer.jsx, it receives data about the card that's currently being rendered updating the response state one last time before posting through ajax
     handleSurveySubmit: function(survey,questionID,response_format){
         var response = this.state.response;
@@ -204,7 +205,8 @@ var SurveyDiv = React.createClass({
                 nextHandler={this.nextQuestion}
                 prevHandler={this.prevQuestion}
                 onSubmit={this.handleSurveySubmit}
-                responseState = {this.state.response.question_responses}/>
+                responseState = {this.state.response.question_responses}
+                surveyTitle = {this.props.surveyTitle}/>
             </div>
             );
         }
