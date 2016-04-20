@@ -1,3 +1,3 @@
-var React = require('react/addons'),
+var React = require('react'),
     assert = require('assert'),
-    TestUtils = React.addons.TestUtils;
+    TestUtils = require('react-addons-test-utils');
