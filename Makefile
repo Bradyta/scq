@@ -15,6 +15,9 @@ dev:
 console:
 	@export PROJECTPATH=${PROJECTPATH} && gulp dev-js && python3
 
+test-js:
+	@export PROJECTPATH=${PROJECTPATH} && gulp test-run
+
 test:
 	@export PROJECTPATH=${PROJECTPATH} && python3 main.py --test
 
