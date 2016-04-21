@@ -79,9 +79,13 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('test-compile',function() {
-	gulp.src(test_js_files)
-		.pipe(concat('test.js'))
-		.pipe(gulp.dest('./test/'));	
+	gulp.src(js_files)
+	    .pipe(gulpBabel())
+	    .pipe(concat('all.js'))
+	    .pipe(gulp.dest('./static/dist/'))
+	gulp.src(test_js_files)    
+	    .pipe(concat('test.js'))
+	    .pipe(gulp.dest('./test/'));	
 })
 
 gulp.task('test-run', function () {
