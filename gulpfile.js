@@ -78,22 +78,22 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('./static/dist/'));
 });
 
-gulp.task('test-compile',function(cb) {
+gulp.task('test-compile',function() {
 	gulp.src(test_js_files)
 		.pipe(concat('test.js'))
-		.pipe(gulp.dest('./test/'));
-	cb();	
+		.pipe(gulp.dest('./test/'));	
 })
 
-gulp.task('test-run', ['test-compile'], function () {
-	return gulp.src('./test/test.js')
-		// gulp-mocha needs filepaths so you can't have any plugins before it 	
+gulp.task('test-run', function () {
+	return gulp.src('./test/test.js')	
 	.pipe(mocha({
            reporter: 'spec',
 	   compilers: {
 	     js:babel
 	   }
         }))
+	.pipe(rename('test_results.js'))
+	.pipe(gulp.dest('./test/'));
 });
 
 // Default Task
