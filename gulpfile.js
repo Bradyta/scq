@@ -78,18 +78,23 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('./static/dist/'));
 });
 
-gulp.task('test-compile',function() {
-	gulp.src(js_files)
+gulp.task('test-compile-1',function(cb) {
+	return gulp.src(js_files)
 	    .pipe(gulpBabel())
 	    .pipe(concat('all.js'))
 	    .pipe(gulp.dest('./static/dist/'))
-	gulp.src(test_js_files)    
-	    .pipe(concat('test.js'))
-	    .pipe(gulp.dest('./test/'));	
+	cb();
 })
 
-gulp.task('test-run', function () {
-	return gulp.src('./test/test.js')	
+gulp.task('test-compile-2', ['test-compile-1'], function(cb) {
+	return gulp.src(test_js_files)    
+	    .pipe(concat('test.js'))
+	    .pipe(gulp.dest('./test/'));
+	cb();	
+})
+
+gulp.task('test-run', ['test-compile-2'], function () {
+	gulp.src('./test/test.js')	
 	.pipe(mocha({
            reporter: 'spec',
 	   compilers: {

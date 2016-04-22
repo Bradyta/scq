@@ -4,15 +4,28 @@ var ProfilePage = React.createClass({
     var user_gender = user_data[0].gender;
     var user_ethnicity = user_data[0].ethnicity;
     var user_native_language = user_data[0].native_language;
+    try{
     var affiliation = _.pull(extra_data[0].primary_affiliation, user_affiliation);
     var gender = _.pull(extra_data[0].gender, user_gender);
     var ethnicity = _.pull(extra_data[0].ethnicity, user_ethnicity);
     var native_language = _.pull(extra_data[0].native_language, user_native_language);
+    }
+    catch(err){
+    var affiliation = "not provided";
+    var gender = "not provided";
+    var ethnicity = "not provided";
+    var native_language = "not provided"
+    }
     var user_status = null;
     var status = null;
     if (user_affiliation == "Student" || user_affiliation == "Both") {
       var user_status = user_data[0].status;
+      try{
       var status = _.pull(extra_data[0].status, user_status);
+      }
+      catch(err){
+      var status = "not provided"
+      }
     }
     return {
       username: user_data[0].username,
@@ -52,7 +65,7 @@ var ProfilePage = React.createClass({
     }
     if (this.state.edit == false) {
       return(
-        <ul style={style}>
+        <ul className="profilePageDiv" style={style}>
           <button type="button" onClick={this.handleClick}>edit</button><br/>
           <li>Username: {this.state.username}</li>
           <li>Affiliation: {this.state.user_affiliation}</li>
