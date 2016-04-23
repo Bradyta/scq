@@ -9,7 +9,7 @@ var ResponseCard = React.createClass({
     },
 
     componentDidMount: function() {
-	if(typeof test === undefined){
+	if(test == false){
         $.ajax({
             url: "/api/results/" + this.props.surveyID,
             dataType: "json",
@@ -98,7 +98,7 @@ var ChartDiv = React.createClass({
     },
     
     updateChart: function(labels,series,question_format,questionID){
-	if(typeof test === undefined){
+	if(test == false){
         var chartCSS = "#chart" + this.state.questionID + "-chart";
         if(question_format == "rating"){    
             var data = {

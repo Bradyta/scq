@@ -134,7 +134,7 @@ var SurveysPage = React.createClass({
 
     //mdl in new questions, this probably needs to be moved or repeated
     componentDidUpdate: function(){
-        if(typeof test === undefined){
+        if(test == false){
             componentHandler.upgradeDom();
         }
     },

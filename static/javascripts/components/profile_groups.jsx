@@ -93,7 +93,6 @@ var ProfileGroups = React.createClass({
                 success: function(data){
                     var pendingGroups = this.state.pendingGroups;
                     pendingGroups = data;
-                    console.log('success');
                     this.setState({
                         pendingGroups: data,
                     })
@@ -105,7 +104,7 @@ var ProfileGroups = React.createClass({
     },
 
     componentDidMount: function(){
-	if(typeof test === undefined){
+	if(test == false){
 		$.ajax({
 		    url: this.props.routes.groups,
 		    type: 'GET',
@@ -121,8 +120,25 @@ var ProfileGroups = React.createClass({
 		        console.log('error');
 		    }.bind(this)
 		});
+
+		$.ajax({
+		        url: this.props.routes.subscribe,
+		        type: 'GET',
+		        dataType: "json",
+		        success: function(data){
+		            var pendingGroups = this.state.pendingGroups;
+		            pendingGroups = data;
+		            this.setState({
+		                pendingGroups: data,
+		            })
+		        }.bind(this),
+		        error: function(xhr, status,err){
+		            console.log('error');
+		        }.bind(this)
+		});
         }
 	else{
+		console.log(test)
 		this.setState({ 
 			currentGroups: ["TestSubscribedGroup"]
 		});

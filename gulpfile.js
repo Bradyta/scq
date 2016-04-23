@@ -16,6 +16,7 @@ var babel = require('babel-core/register');
 
 js_files = [
     './static/javascripts/db.js',
+    './static/javascripts/components/notTesting.jsx',
     './static/javascripts/components/questions.jsx',
     './static/javascripts/components/cards.jsx',
     './static/javascripts/components/dashboard.jsx',
@@ -31,7 +32,24 @@ js_files = [
     './static/javascripts/components/help.jsx'
 ]
 
-test_js_files = [
+test_js_files_1 = [
+    './static/javascripts/db.js',
+    './static/javascripts/components/questions.jsx',
+    './static/javascripts/components/cards.jsx',
+    './static/javascripts/components/dashboard.jsx',
+    './static/javascripts/components/welcome.jsx',
+    './static/javascripts/components/survey_card.jsx',
+    './static/javascripts/components/survey_sample.jsx',
+    './static/javascripts/components/footer.jsx',
+    './static/javascripts/components/profile.jsx',
+    './static/javascripts/components/profile_groups.jsx',
+    './static/javascripts/components/groups_page.jsx',
+    './static/javascripts/components/search_card.jsx',
+    './static/javascripts/components/response.jsx',
+    './static/javascripts/components/help.jsx'
+]
+
+test_js_files_2 = [
     './static/javascripts/tests/test_requires.js',
     './static/dist/all.js',
     './static/javascripts/tests/test-content.js' 
@@ -79,7 +97,7 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('test-compile-1',function(cb) {
-	return gulp.src(js_files)
+	return gulp.src(test_js_files_1)
 	    .pipe(gulpBabel())
 	    .pipe(concat('all.js'))
 	    .pipe(gulp.dest('./static/dist/'))
@@ -87,7 +105,7 @@ gulp.task('test-compile-1',function(cb) {
 })
 
 gulp.task('test-compile-2', ['test-compile-1'], function(cb) {
-	return gulp.src(test_js_files)    
+	return gulp.src(test_js_files_2)    
 	    .pipe(concat('test.js'))
 	    .pipe(gulp.dest('./test/'));
 	cb();	

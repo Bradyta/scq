@@ -4,7 +4,7 @@ var ProfilePage = React.createClass({
     var user_gender = user_data[0].gender;
     var user_ethnicity = user_data[0].ethnicity;
     var user_native_language = user_data[0].native_language;
-    if(typeof test === undefined){
+    if(test == false){
 	    var affiliation = _.pull(extra_data[0].primary_affiliation, user_affiliation);
 	    var gender = _.pull(extra_data[0].gender, user_gender);
 	    var ethnicity = _.pull(extra_data[0].ethnicity, user_ethnicity);
@@ -14,7 +14,7 @@ var ProfilePage = React.createClass({
     var status = null;
     if (user_affiliation == "Student" || user_affiliation == "Both") {
       var user_status = user_data[0].status;
-      if(typeof test === undefined){
+      if(test == false){
       var status = _.pull(extra_data[0].status, user_status);
       }
       else{

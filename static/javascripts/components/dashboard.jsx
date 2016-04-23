@@ -9,7 +9,7 @@ var Page = React.createClass({
         document.title = newTitle
 
         const header =  title + " - " + unansweredSurveys + " unanswered survey"
-	if(typeof test === undefined){
+	if(test == false){
             $('.mdl-layout-title')[0].innerHTML = header + (unansweredSurveys != 1 ? "s" : "")
 	}
     },

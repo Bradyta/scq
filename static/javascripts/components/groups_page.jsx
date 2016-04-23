@@ -127,7 +127,7 @@ var GroupMembers = React.createClass({
     },
 
     componentDidMount: function() {
-      if(typeof test === undefined){
+      if(test == false){
         this.findGroups();
       }
       else{

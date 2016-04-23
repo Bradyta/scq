@@ -20,7 +20,7 @@ var MultipleChoice = React.createClass({
     },
     
     componentDidUpdate: function(){
-	if(typeof test === undefined){	
+	if(test == false){	
 	    componentHandler.upgradeDom();
 	}
     },
@@ -129,7 +129,7 @@ getInitialState: function(){
     },
 
     componentDidUpdate: function(){
-	if(typeof test === undefined){	
+	if(test == false){	
 	    componentHandler.upgradeDom();
 	}
     },
@@ -237,7 +237,7 @@ var FreeResponse = React.createClass({
     },
 
     componentDidUpdate: function(){
-	if(typeof test === undefined){	
+	if(test == false){	
 	    componentHandler.upgradeDom();
 	}
     },
@@ -300,7 +300,7 @@ var Rating = React.createClass({
     },
     
     componentDidUpdate: function(){
-	if(typeof test === undefined){	
+	if(test == false){	
 	    componentHandler.upgradeDom();
 	}
     },
