@@ -101,8 +101,6 @@ gulp.task('test-run', ['test-compile-2'], function () {
 	     js:babel
 	   }
         }))
-	.pipe(rename('test_results.js'))
-	.pipe(gulp.dest('./test/'));
 });
 
 // Default Task
