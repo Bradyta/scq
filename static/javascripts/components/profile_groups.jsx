@@ -105,25 +105,27 @@ var ProfileGroups = React.createClass({
     },
 
     componentDidMount: function(){
-	try{
-        $.ajax({
-            url: this.props.routes.groups,
-            type: 'GET',
-            dataType: "json",
-            success: function (data) {
-                var currentGroups = this.state.currentGroups;
-                currentGroups = data;
-                this.setState({
-                    currentGroups: data
-                });
-            }.bind(this),
-            error: function (xhr, status, err) {
-                console.log('error');
-            }.bind(this)
-        });
+	if(typeof test === undefined){
+		$.ajax({
+		    url: this.props.routes.groups,
+		    type: 'GET',
+		    dataType: "json",
+		    success: function (data) {
+		        var currentGroups = this.state.currentGroups;
+		        currentGroups = data;
+		        this.setState({
+		            currentGroups: data
+		        });
+		    }.bind(this),
+		    error: function (xhr, status, err) {
+		        console.log('error');
+		    }.bind(this)
+		});
         }
-        catch(err){
-	    this.setState({ currentGroups: ["TestSubscribedGroup"] })        
+	else{
+		this.setState({ 
+			currentGroups: ["TestSubscribedGroup"]
+		});
 	}
     },
 

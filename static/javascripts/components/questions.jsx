@@ -20,10 +20,8 @@ var MultipleChoice = React.createClass({
     },
     
     componentDidUpdate: function(){
-	try{	
-	componentHandler.upgradeDom();
-	}
-	catch(err){
+	if(typeof test === undefined){	
+	    componentHandler.upgradeDom();
 	}
     },
     /*if a checkbox is checked/unchecked, send which option got checked (i) and whether it was true or false in
@@ -131,10 +129,8 @@ getInitialState: function(){
     },
 
     componentDidUpdate: function(){
-	try{	
-	componentHandler.upgradeDom();
-	}
-	catch(err){
+	if(typeof test === undefined){	
+	    componentHandler.upgradeDom();
 	}
     },
 
@@ -241,10 +237,8 @@ var FreeResponse = React.createClass({
     },
 
     componentDidUpdate: function(){
-	try{	
-	componentHandler.upgradeDom();
-	}
-	catch(err){
+	if(typeof test === undefined){	
+	    componentHandler.upgradeDom();
 	}
     },
 
@@ -306,10 +300,8 @@ var Rating = React.createClass({
     },
     
     componentDidUpdate: function(){
-	try{	
-	componentHandler.upgradeDom();
-	}
-	catch(err){
+	if(typeof test === undefined){	
+	    componentHandler.upgradeDom();
 	}
     },
 

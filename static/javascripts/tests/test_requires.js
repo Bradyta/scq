@@ -6,6 +6,8 @@ var React = require('react'),
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.parentWindow;
 
+var test = true
+
 var data = [{
 "closed_timestamp" : null,
 "created_timestamp" : 1461290509.1686077,
