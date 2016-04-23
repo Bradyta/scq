@@ -15,7 +15,7 @@ var data = [{
 "creator_name" : "brau7176",
 "deleted" : false,
 "id" : "bc1cf800-d8ad-41b9-9e10-abe5886badb9",
-"item_id" : "lol",
+"item_id" : "Test Group",
 "item_name" : "Test Title",
 "item_type" : "Group",
 "questions" : [{
